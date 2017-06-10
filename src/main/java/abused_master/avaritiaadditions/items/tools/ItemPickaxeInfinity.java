@@ -24,6 +24,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -77,6 +78,11 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
             if(EnchantmentHelper.getEnchantmentLevel(Enchantment.getEnchantmentByID(35), stack) < 10)
                 stack.addEnchantment(Enchantment.getEnchantmentByID(35), 10);
             tags.setBoolean("hammer", !tags.getBoolean("hammer"));
+            if (tags.getBoolean("hammer")) {
+                player.addChatMessage(new TextComponentString(TextFormatting.GREEN + "Changed mode of tool to Hammer!"));
+            } else {
+                player.addChatMessage(new TextComponentString(TextFormatting.GREEN + "Changed mode of tool to Pickaxe!"));
+            }
             player.swingArm(hand);
         }
         return super.onItemRightClick(stack, world, player, hand);

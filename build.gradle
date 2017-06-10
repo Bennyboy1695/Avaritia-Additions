@@ -13,7 +13,7 @@ version = "1.6_1.10.2"
 group= "abused_master.avaritiaadditions"
 archivesBaseName = "AvaritiaAdditions"
 
-sourceCompatibility = targetCompatibility = "1.8"
+//sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }

@@ -18,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -65,6 +66,11 @@ public class ItemShovelInfinity extends ItemSpade {
                 stack.setTagCompound(tags);
             }
             tags.setBoolean("destroyer", !tags.getBoolean("destroyer"));
+            if (tags.getBoolean("destroyer")) {
+                player.addChatMessage(new TextComponentString(TextFormatting.GREEN + "Changed mode of tool to Destroyer!"));
+            } else {
+                player.addChatMessage(new TextComponentString(TextFormatting.GREEN + "Changed mode of tool to Shovel"));
+            }
             player.swingArm(hand);
             if(destroyer) {
                 destroyer = false;
